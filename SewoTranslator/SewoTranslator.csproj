@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29DA2AD0-CD04-4E55-A99B-73D84767A2D3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SewoTranslator</RootNamespace>
+    <AssemblyName>SewoTranslator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://196989.w89.wedos.net/www/domains/ladislavondris.com/programs/SewoTranslator/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>1</UpdateInterval>
+    <UpdateIntervalUnits>Hours</UpdateIntervalUnits>
+    <UpdatePeriodically>true</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://ladislavondris.com/programs/SewoTranslator/</InstallUrl>
+    <SupportUrl>http://ladislavondris.com/programs/SewoTranslator</SupportUrl>
+    <ProductName>Sewo Translator</ProductName>
+    <PublisherName>Ladislav Ondris</PublisherName>
+    <MinimumRequiredVersion>1.2.0.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.2.0.0</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>290D096A0C761F02CBC0EB9FD6378BFDB76CCD2F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SewoTranslator_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.8.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\CambridgeDictionarySource\CambridgeDictionary.cs" />
+    <Compile Include="Model\CambridgeDictionarySource\IRequester.cs" />
+    <Compile Include="Model\CambridgeDictionarySource\WordInfo.cs" />
+    <Compile Include="Model\DialogService\IDialog.cs" />
+    <Compile Include="Model\DialogService\IDialogRequestClose.cs" />
+    <Compile Include="Model\DialogService\IDialogService.cs" />
+    <Compile Include="Model\ExtensionMethods.cs" />
+    <Compile Include="Model\WordRemovedEventArgs.cs" />
+    <Compile Include="Model\NewWordSavedEventArgs.cs" />
+    <Compile Include="Model\SavedWordsHandler.cs" />
+    <Compile Include="Model\TextBlock.cs" />
+    <Compile Include="Model\Trie.cs" />
+    <Compile Include="Model\UnfoundWordsManager.cs" />
+    <Compile Include="ViewModel\EnglishDictionaryVM.cs" />
+    <Compile Include="ViewModel\SavedWordsVM.cs" />
+    <Compile Include="Model\SavedWord.cs" />
+    <Compile Include="ViewModel\SettingsVM.cs" />
+    <Compile Include="ViewModel\UnfoundWordsVM.cs" />
+    <Compile Include="View\EnglishDictionaryWindow.xaml.cs">
+      <DependentUpon>EnglishDictionaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SavedWordsWindow.xaml.cs">
+      <DependentUpon>SavedWordsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnfoundWordsWindow.xaml.cs">
+      <DependentUpon>UnfoundWordsWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\SharedComponents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EnglishDictionaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IntroductionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Behavior\CaretIndexBehavior.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Converter\TranslationsStringConverter.cs" />
+    <Compile Include="Model\FileReader.cs" />
+    <Compile Include="Model\IClosable.cs" />
+    <Compile Include="Model\Language.cs" />
+    <Compile Include="Model\Word.cs" />
+    <Compile Include="Properties\Resources.cs-CZ.Designer.cs">
+      <DependentUpon>Resources.cs-CZ.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ViewModel\AboutVM.cs" />
+    <Compile Include="ViewModel\IntroductionVM.cs" />
+    <Compile Include="ViewModel\MainVM.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IntroductionWindow.xaml.cs">
+      <DependentUpon>IntroductionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\SavedWordsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UnfoundWordsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.cs-CZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.cs-CZ.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Res\raw\a0.txt" />
+    <EmbeddedResource Include="Res\raw\a1.txt" />
+    <EmbeddedResource Include="Res\raw\a10.txt" />
+    <EmbeddedResource Include="Res\raw\a11.txt" />
+    <EmbeddedResource Include="Res\raw\a12.txt" />
+    <EmbeddedResource Include="Res\raw\a13.txt" />
+    <EmbeddedResource Include="Res\raw\a14.txt" />
+    <EmbeddedResource Include="Res\raw\a15.txt" />
+    <EmbeddedResource Include="Res\raw\a16.txt" />
+    <EmbeddedResource Include="Res\raw\a17.txt" />
+    <EmbeddedResource Include="Res\raw\a18.txt" />
+    <EmbeddedResource Include="Res\raw\a19.txt" />
+    <EmbeddedResource Include="Res\raw\a2.txt" />
+    <EmbeddedResource Include="Res\raw\a20.txt" />
+    <EmbeddedResource Include="Res\raw\a21.txt" />
+    <EmbeddedResource Include="Res\raw\a22.txt" />
+    <EmbeddedResource Include="Res\raw\a23.txt" />
+    <EmbeddedResource Include="Res\raw\a24.txt" />
+    <EmbeddedResource Include="Res\raw\a25.txt" />
+    <EmbeddedResource Include="Res\raw\a26.txt" />
+    <EmbeddedResource Include="Res\raw\a27.txt" />
+    <EmbeddedResource Include="Res\raw\a28.txt" />
+    <EmbeddedResource Include="Res\raw\a29.txt" />
+    <EmbeddedResource Include="Res\raw\a3.txt" />
+    <EmbeddedResource Include="Res\raw\a30.txt" />
+    <EmbeddedResource Include="Res\raw\a31.txt" />
+    <EmbeddedResource Include="Res\raw\a32.txt" />
+    <EmbeddedResource Include="Res\raw\a33.txt" />
+    <EmbeddedResource Include="Res\raw\a34.txt" />
+    <EmbeddedResource Include="Res\raw\a35.txt" />
+    <EmbeddedResource Include="Res\raw\a36.txt" />
+    <EmbeddedResource Include="Res\raw\a37.txt" />
+    <EmbeddedResource Include="Res\raw\a38.txt" />
+    <EmbeddedResource Include="Res\raw\a39.txt" />
+    <EmbeddedResource Include="Res\raw\a4.txt" />
+    <EmbeddedResource Include="Res\raw\a40.txt" />
+    <EmbeddedResource Include="Res\raw\a41.txt" />
+    <EmbeddedResource Include="Res\raw\a42.txt" />
+    <EmbeddedResource Include="Res\raw\a43.txt" />
+    <EmbeddedResource Include="Res\raw\a44.txt" />
+    <EmbeddedResource Include="Res\raw\a45.txt" />
+    <EmbeddedResource Include="Res\raw\a46.txt" />
+    <EmbeddedResource Include="Res\raw\a47.txt" />
+    <EmbeddedResource Include="Res\raw\a48.txt" />
+    <EmbeddedResource Include="Res\raw\a49.txt" />
+    <EmbeddedResource Include="Res\raw\a5.txt" />
+    <EmbeddedResource Include="Res\raw\a50.txt" />
+    <EmbeddedResource Include="Res\raw\a51.txt" />
+    <EmbeddedResource Include="Res\raw\a52.txt" />
+    <EmbeddedResource Include="Res\raw\a53.txt" />
+    <EmbeddedResource Include="Res\raw\a54.txt" />
+    <EmbeddedResource Include="Res\raw\a55.txt" />
+    <EmbeddedResource Include="Res\raw\a56.txt" />
+    <EmbeddedResource Include="Res\raw\a57.txt" />
+    <EmbeddedResource Include="Res\raw\a58.txt" />
+    <EmbeddedResource Include="Res\raw\a59.txt" />
+    <EmbeddedResource Include="Res\raw\a6.txt" />
+    <EmbeddedResource Include="Res\raw\a60.txt" />
+    <EmbeddedResource Include="Res\raw\a61.txt" />
+    <EmbeddedResource Include="Res\raw\a62.txt" />
+    <EmbeddedResource Include="Res\raw\a63.txt" />
+    <EmbeddedResource Include="Res\raw\a64.txt" />
+    <EmbeddedResource Include="Res\raw\a65.txt" />
+    <EmbeddedResource Include="Res\raw\a66.txt" />
+    <EmbeddedResource Include="Res\raw\a67.txt" />
+    <EmbeddedResource Include="Res\raw\a68.txt" />
+    <EmbeddedResource Include="Res\raw\a69.txt" />
+    <EmbeddedResource Include="Res\raw\a7.txt" />
+    <EmbeddedResource Include="Res\raw\a70.txt" />
+    <EmbeddedResource Include="Res\raw\a71.txt" />
+    <EmbeddedResource Include="Res\raw\a72.txt" />
+    <EmbeddedResource Include="Res\raw\a73.txt" />
+    <EmbeddedResource Include="Res\raw\a74.txt" />
+    <EmbeddedResource Include="Res\raw\a75.txt" />
+    <EmbeddedResource Include="Res\raw\a76.txt" />
+    <EmbeddedResource Include="Res\raw\a77.txt" />
+    <EmbeddedResource Include="Res\raw\a78.txt" />
+    <EmbeddedResource Include="Res\raw\a79.txt" />
+    <EmbeddedResource Include="Res\raw\a8.txt" />
+    <EmbeddedResource Include="Res\raw\a80.txt" />
+    <EmbeddedResource Include="Res\raw\a81.txt" />
+    <EmbeddedResource Include="Res\raw\a82.txt" />
+    <EmbeddedResource Include="Res\raw\a83.txt" />
+    <EmbeddedResource Include="Res\raw\a84.txt" />
+    <EmbeddedResource Include="Res\raw\a9.txt" />
+    <EmbeddedResource Include="Res\raw\b0.txt" />
+    <EmbeddedResource Include="Res\raw\b1.txt" />
+    <EmbeddedResource Include="Res\raw\b10.txt" />
+    <EmbeddedResource Include="Res\raw\b11.txt" />
+    <EmbeddedResource Include="Res\raw\b12.txt" />
+    <EmbeddedResource Include="Res\raw\b13.txt" />
+    <EmbeddedResource Include="Res\raw\b14.txt" />
+    <EmbeddedResource Include="Res\raw\b15.txt" />
+    <EmbeddedResource Include="Res\raw\b16.txt" />
+    <EmbeddedResource Include="Res\raw\b17.txt" />
+    <EmbeddedResource Include="Res\raw\b18.txt" />
+    <EmbeddedResource Include="Res\raw\b19.txt" />
+    <EmbeddedResource Include="Res\raw\b2.txt" />
+    <EmbeddedResource Include="Res\raw\b20.txt" />
+    <EmbeddedResource Include="Res\raw\b21.txt" />
+    <EmbeddedResource Include="Res\raw\b22.txt" />
+    <EmbeddedResource Include="Res\raw\b23.txt" />
+    <EmbeddedResource Include="Res\raw\b24.txt" />
+    <EmbeddedResource Include="Res\raw\b25.txt" />
+    <EmbeddedResource Include="Res\raw\b26.txt" />
+    <EmbeddedResource Include="Res\raw\b27.txt" />
+    <EmbeddedResource Include="Res\raw\b28.txt" />
+    <EmbeddedResource Include="Res\raw\b29.txt" />
+    <EmbeddedResource Include="Res\raw\b3.txt" />
+    <EmbeddedResource Include="Res\raw\b30.txt" />
+    <EmbeddedResource Include="Res\raw\b31.txt" />
+    <EmbeddedResource Include="Res\raw\b32.txt" />
+    <EmbeddedResource Include="Res\raw\b33.txt" />
+    <EmbeddedResource Include="Res\raw\b34.txt" />
+    <EmbeddedResource Include="Res\raw\b35.txt" />
+    <EmbeddedResource Include="Res\raw\b36.txt" />
+    <EmbeddedResource Include="Res\raw\b37.txt" />
+    <EmbeddedResource Include="Res\raw\b38.txt" />
+    <EmbeddedResource Include="Res\raw\b39.txt" />
+    <EmbeddedResource Include="Res\raw\b4.txt" />
+    <EmbeddedResource Include="Res\raw\b40.txt" />
+    <EmbeddedResource Include="Res\raw\b41.txt" />
+    <EmbeddedResource Include="Res\raw\b42.txt" />
+    <EmbeddedResource Include="Res\raw\b43.txt" />
+    <EmbeddedResource Include="Res\raw\b44.txt" />
+    <EmbeddedResource Include="Res\raw\b45.txt" />
+    <EmbeddedResource Include="Res\raw\b46.txt" />
+    <EmbeddedResource Include="Res\raw\b47.txt" />
+    <EmbeddedResource Include="Res\raw\b48.txt" />
+    <EmbeddedResource Include="Res\raw\b49.txt" />
+    <EmbeddedResource Include="Res\raw\b5.txt" />
+    <EmbeddedResource Include="Res\raw\b50.txt" />
+    <EmbeddedResource Include="Res\raw\b51.txt" />
+    <EmbeddedResource Include="Res\raw\b52.txt" />
+    <EmbeddedResource Include="Res\raw\b53.txt" />
+    <EmbeddedResource Include="Res\raw\b54.txt" />
+    <EmbeddedResource Include="Res\raw\b55.txt" />
+    <EmbeddedResource Include="Res\raw\b56.txt" />
+    <EmbeddedResource Include="Res\raw\b57.txt" />
+    <EmbeddedResource Include="Res\raw\b58.txt" />
+    <EmbeddedResource Include="Res\raw\b59.txt" />
+    <EmbeddedResource Include="Res\raw\b6.txt" />
+    <EmbeddedResource Include="Res\raw\b60.txt" />
+    <EmbeddedResource Include="Res\raw\b61.txt" />
+    <EmbeddedResource Include="Res\raw\b62.txt" />
+    <EmbeddedResource Include="Res\raw\b63.txt" />
+    <EmbeddedResource Include="Res\raw\b64.txt" />
+    <EmbeddedResource Include="Res\raw\b65.txt" />
+    <EmbeddedResource Include="Res\raw\b66.txt" />
+    <EmbeddedResource Include="Res\raw\b67.txt" />
+    <EmbeddedResource Include="Res\raw\b68.txt" />
+    <EmbeddedResource Include="Res\raw\b69.txt" />
+    <EmbeddedResource Include="Res\raw\b7.txt" />
+    <EmbeddedResource Include="Res\raw\b70.txt" />
+    <EmbeddedResource Include="Res\raw\b71.txt" />
+    <EmbeddedResource Include="Res\raw\b72.txt" />
+    <EmbeddedResource Include="Res\raw\b73.txt" />
+    <EmbeddedResource Include="Res\raw\b74.txt" />
+    <EmbeddedResource Include="Res\raw\b75.txt" />
+    <EmbeddedResource Include="Res\raw\b76.txt" />
+    <EmbeddedResource Include="Res\raw\b77.txt" />
+    <EmbeddedResource Include="Res\raw\b78.txt" />
+    <EmbeddedResource Include="Res\raw\b79.txt" />
+    <EmbeddedResource Include="Res\raw\b8.txt" />
+    <EmbeddedResource Include="Res\raw\b80.txt" />
+    <EmbeddedResource Include="Res\raw\b81.txt" />
+    <EmbeddedResource Include="Res\raw\b82.txt" />
+    <EmbeddedResource Include="Res\raw\b83.txt" />
+    <EmbeddedResource Include="Res\raw\b84.txt" />
+    <EmbeddedResource Include="Res\raw\b85.txt" />
+    <EmbeddedResource Include="Res\raw\b9.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\circle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\leftarrow.png" />
+    <Resource Include="Res\rightarrow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

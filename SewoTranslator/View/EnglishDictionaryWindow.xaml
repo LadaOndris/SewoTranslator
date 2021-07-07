@@ -1,0 +1,118 @@
+﻿<Window x:Class="SewoTranslator.View.EnglishDictionaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:SewoTranslator.View"
+        xmlns:model="clr-namespace:SewoTranslator.Model"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Cambridge Dictionary" Height="260" Width="520"
+        WindowStyle="None"
+        KeyDown="WindowKeyDown"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/SharedComponents.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Style TargetType="{x:Type TextBlock}" x:Key="HideIfTextIsNullOrEmpty">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding WordInfo.GuideWord}" Value="">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding WordInfo.GuideWord}" Value="{x:Null}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.Style>
+            <Style>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsTextBoxFocused}" Value="True">
+                        <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=TextBox}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
+        <DockPanel Grid.Row="0" Style="{StaticResource MenuStyle}" MouseLeftButtonDown="MouseDown">
+            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type Window}}, FallbackValue='Cambridge Dictionary'}"
+                       Foreground="White"
+                       Margin="5,2" VerticalAlignment="Center" FontSize="14"/>
+            <Button DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{Binding HideCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                    Style="{StaticResource CloseButtonStyle}"
+                    Width="30"
+                    Height="30">
+                <Button.Content>
+                    <Image Source="pack://application:,,,/Res/cross.png" Width="12" Height="10"/>
+                </Button.Content>
+            </Button>
+        </DockPanel>
+        <Grid Margin="0,10" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="10,0,9.6,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="FontSize" Value="18"/>
+                    </Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Width" Value="20"/>
+                    </Style>
+                </Grid.Resources>
+
+                <TextBlock Grid.Column="0" 
+                           Text="{Binding WordInfo.Word, FallbackValue=PERSPECTIVE}" 
+                           model:TextBlock.CharacterCasing="Upper" 
+                           FontWeight="SemiBold" 
+                           Foreground="Red"/>
+                <TextBlock Grid.Column="1" 
+                           Text="{Binding WordInfo.WordClass, FallbackValue=noun}" 
+                           FontStyle="Italic" 
+                           Margin="8,0"/>
+                <TextBlock Grid.Column="2" 
+                           Text="{Binding WordInfo.GuideWord, FallbackValue=(thought), StringFormat={}({0})}" 
+                           model:TextBlock.CharacterCasing="Lower" 
+                           FontWeight="Normal"
+                           Style="{StaticResource HideIfTextIsNullOrEmpty}"
+                           />
+                <Control Grid.Column="4" Template="{StaticResource ButtonPrevious}"/>
+                <Control Grid.Column="5" Template="{StaticResource PageNumber}"/>
+                <Control Grid.Column="6" Template="{StaticResource ButtonNext}"/>
+            </Grid>
+            <Rectangle  Grid.Row="1" Margin="0,8,0,3" Fill="#1B4C7C" Height="3" />
+            <Control Grid.Row="2" Template="{StaticResource WordMeaningControl}"/>
+            <Control Grid.Row="3" Template="{StaticResource SentenceExamplesControl}"/>
+        </Grid>
+    </Grid>
+</Window>

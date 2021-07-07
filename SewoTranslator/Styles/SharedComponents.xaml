@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SewoTranslator.Styles"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+
+    <x:Array x:Key="ExampleSentences" Type="{x:Type sys:String}">
+        <sys:String>Her attitude lends a fresh perspective to the subject.</sys:String>
+        <sys:String>He writes from a Marxist perspective.</sys:String>
+        <sys:String>Because of its geographical position, Germany's perspective on the situation in Russia is very different from Washington's.</sys:String>
+        <sys:String>I'd like to get someone else's perspective on this.</sys:String>
+        <sys:String>You're approaching the problem from a completely different perspective.</sys:String>
+    </x:Array>
+    
+    <ControlTemplate TargetType="{x:Type Control}" x:Key="ButtonPrevious">
+        <Button 
+            Command="{Binding PreviousWordInfoCommand}" 
+                HorizontalAlignment="Center" 
+                Width="24" Height="24"
+                Background="White" 
+                BorderBrush="Transparent">
+            <Image Source="pack://application:,,,/Res/rightarrow.png"/>
+        </Button>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type Control}" x:Key="ButtonNext">
+        <Button  
+                        Command="{Binding NextWordInfoCommand}" 
+                        HorizontalAlignment="Center" 
+                        Width="24" Height="24"
+                        Background="White"
+                        BorderBrush="Transparent">
+            <Image Source="pack://application:,,,/Res/leftarrow.png"/>
+        </Button>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type Control}" x:Key="PageNumber">
+        <Viewbox HorizontalAlignment="Center" StretchDirection="DownOnly">
+            <TextBlock>
+                        <Run Text="{Binding CurrentPage, FallbackValue=111, Mode=OneWay}"/><Run Text="/"
+                        /><Run Text="{Binding WordInfosCount, FallbackValue=120, Mode=OneWay}"/>
+            </TextBlock>
+        </Viewbox>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type Control}" x:Key="WordMeaningControl">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="pack://application:,,,/Res/arrow_right.png" Height="24" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            <TextBlock 
+                    Grid.Column="1"
+                   Text="{Binding WordInfo.Meaning, FallbackValue='the method by which solid objects drawn or painted on a flat surface are given the appearance of depth and distance'}"
+                   Margin="8,10,20,10"
+                   FontSize="16"
+                   FontWeight="SemiBold"
+                   TextWrapping="Wrap"/>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="{x:Type Control}" x:Key="SentenceExamplesControl">
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" Margin="10,0">
+            <ItemsControl 
+                ItemsSource="{Binding WordInfo.Examples, FallbackValue={StaticResource ExampleSentences}}" 
+                FontSize="16">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/Res/circle2.png" Height="6" Margin="0,0,0,3"/> <Run Text="{Binding Path=., Mode=OneWay}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </ControlTemplate>
+</ResourceDictionary>
