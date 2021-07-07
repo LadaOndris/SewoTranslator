@@ -71,7 +71,14 @@ namespace CambridgeDictionary
             using (WebClient client = new WebClient())
             {
                 var uri = new Uri(address, UriKind.Absolute);
-                return client.DownloadString(uri);
+                try
+                {
+                    return client.DownloadString(uri);
+                }
+                catch (WebException e)
+                {
+                    return string.Empty;
+                }
             }
         }
 

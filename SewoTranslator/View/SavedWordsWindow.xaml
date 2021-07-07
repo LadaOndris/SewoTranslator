@@ -15,61 +15,60 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../Styles/SharedComponents.xaml"/>
+                <ResourceDictionary Source="../Styles/Expander.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
             <converter:TranslationsStringConverter x:Key="TranslationsStringConverter"/>
         </ResourceDictionary>
     </Window.Resources>
-    <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+    <ScrollViewer Margin="20,0,0,0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
         <ItemsControl ItemsSource="{Binding SavedWords}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="Black" Margin="0,0,0,10">
-                        <Expander ExpandDirection="Down" IsExpanded="False">
-                            <Expander.Header>
-                                <Border Padding="5" Cursor="Hand">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock 
+                    <Expander ExpandDirection="Down" IsExpanded="False">
+                        <Expander.Header>
+                            <Border Padding="0" Cursor="Hand">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
                                         Grid.Column="0" 
-                                        Text="{Binding Word.Word}" Margin="0,0,10,0"/>
-                                        <TextBlock 
+                                        Text="{Binding Word.Word}" Margin="0,0,10,0"
+                                        FontSize="17"/>
+                                    <TextBlock 
                                         Grid.Column="1" 
                                         Text="{Binding Word.Translations, Converter={StaticResource TranslationsStringConverter}}"
                                         FontSize="14"
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center"/>
-                                    </Grid>
-                                </Border>
-                            </Expander.Header>
-                            <StackPanel>
-                                <Rectangle Fill="Black" Height="3"/>
-                                <Border Padding="10">
-                                    <StackPanel Orientation="Vertical">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" Text="{Binding WordInfo.WordClass}" FontStyle="Italic" Margin="0,0,10,0"/>
+                                </Grid>
+                            </Border>
+                        </Expander.Header>
+                        <StackPanel>
+                            <Border Padding="10">
+                                <StackPanel Orientation="Vertical">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding WordInfo.WordClass}" FontStyle="Italic" Margin="0,0,10,0"/>
 
-                                            <Control Grid.Column="2" Template="{StaticResource ButtonPrevious}"/>
-                                            <Control Grid.Column="3" Template="{StaticResource PageNumber}"/>
-                                            <Control Grid.Column="4" Template="{StaticResource ButtonNext}"/>
-                                        </Grid>
-                                        <Control Template="{StaticResource WordMeaningControl}"/>
-                                        <Control Template="{StaticResource SentenceExamplesControl}"/>
-                                    </StackPanel>
-                                </Border>
-                            </StackPanel>
-                        </Expander>
-                    </Border>
+                                        <Control Grid.Column="2" Template="{StaticResource ButtonPrevious}"/>
+                                        <Control Grid.Column="3" Template="{StaticResource PageNumber}"/>
+                                        <Control Grid.Column="4" Template="{StaticResource ButtonNext}"/>
+                                    </Grid>
+                                    <Control Template="{StaticResource WordMeaningControl}"/>
+                                    <Control Template="{StaticResource SentenceExamplesControl}"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Expander>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
