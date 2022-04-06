@@ -21,18 +21,39 @@ namespace SewoTranslator.ViewModel
             LoadSavedWords();
         }
         
-        public ObservableCollection<EnglishDictionaryVM> SavedWords { get; } 
-            = new ObservableCollection<EnglishDictionaryVM>();
+        public ObservableCollection<WordGroup> WordGroups { get; private set; }
+            = new ObservableCollection<WordGroup>();
 
         private void LoadSavedWords()
         {
             savedWordsHandler.LoadSavedWordInfosFromFile();
+            List<WordGroup> groups = GroupSavedWords();
 
-            foreach (SavedWord savedWordVM in savedWordsHandler.SavedWords)
-            {
-                SavedWords.Add(new EnglishDictionaryVM(savedWordVM));
-            }
+            WordGroups = new ObservableCollection<WordGroup>(groups);
         }
-        
+
+        private List<WordGroup> GroupSavedWords()
+        {
+            var groups = new SortedDictionary<DateTime, WordGroup>(new DateComparer());
+
+            foreach (SavedWord savedWord in savedWordsHandler.SavedWords)
+            {
+                if (!groups.ContainsKey(savedWord.DateSaved))
+                {
+                    groups.Add(savedWord.DateSaved, new WordGroup(savedWord.DateSaved));
+                }
+                groups[savedWord.DateSaved].SavedWords.Add(new EnglishDictionaryVM(savedWord));
+            }
+
+            return groups.Values.ToList();
+        }
+    }
+
+    internal sealed class DateComparer : IComparer<DateTime>
+    {
+        public int Compare(DateTime x, DateTime y)
+        {
+            return DateTime.Compare(y, x);
+        }
     }
 }

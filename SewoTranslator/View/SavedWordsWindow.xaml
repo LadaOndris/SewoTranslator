@@ -9,7 +9,7 @@
         xmlns:converter="clr-namespace:SewoTranslator.Converter"
         mc:Ignorable="d"
         Title="Saved words"
-        Height="450" Width="520"
+        Height="450" Width="720"
         FontSize="18">
     <Window.Resources>
         <ResourceDictionary>
@@ -17,58 +17,67 @@
                 <ResourceDictionary Source="../Styles/SharedComponents.xaml"/>
                 <ResourceDictionary Source="../Styles/Expander.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
+
             <converter:TranslationsStringConverter x:Key="TranslationsStringConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <ScrollViewer Margin="20,0,0,0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
-        <ItemsControl ItemsSource="{Binding SavedWords}">
+        <ItemsControl ItemsSource="{Binding WordGroups}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Expander ExpandDirection="Down" IsExpanded="False">
-                        <Expander.Header>
-                            <Border Padding="0" Cursor="Hand">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Date, StringFormat=d MMMM yyyy}"/>
+                        <ItemsControl ItemsSource="{Binding SavedWords}" Margin="20,5,5,5">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander ExpandDirection="Down" IsExpanded="False">
+                                        <Expander.Header>
+                                            <Border Padding="0" Cursor="Hand">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock 
                                         Grid.Column="0" 
                                         Text="{Binding Word.Word}" Margin="0,0,10,0"
                                         FontSize="17"/>
-                                    <TextBlock 
+                                                    <TextBlock 
                                         Grid.Column="1" 
                                         Text="{Binding Word.Translations, Converter={StaticResource TranslationsStringConverter}}"
                                         FontSize="14"
                                         TextWrapping="Wrap"
                                         VerticalAlignment="Center"/>
-                                </Grid>
-                            </Border>
-                        </Expander.Header>
-                        <StackPanel>
-                            <Border Padding="10">
-                                <StackPanel Orientation="Vertical">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <TextBlock Grid.Column="0" Text="{Binding WordInfo.WordClass}" FontStyle="Italic" Margin="0,0,10,0"/>
+                                                </Grid>
+                                            </Border>
+                                        </Expander.Header>
+                                        <StackPanel>
+                                            <Border Padding="10">
+                                                <StackPanel Orientation="Vertical">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Grid.Column="0" Text="{Binding WordInfo.WordClass}" FontStyle="Italic" Margin="0,0,10,0"/>
 
-                                        <Control Grid.Column="2" Template="{StaticResource ButtonPrevious}"/>
-                                        <Control Grid.Column="3" Template="{StaticResource PageNumber}"/>
-                                        <Control Grid.Column="4" Template="{StaticResource ButtonNext}"/>
-                                    </Grid>
-                                    <Control Template="{StaticResource WordMeaningControl}"/>
-                                    <Control Template="{StaticResource SentenceExamplesControl}"/>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                    </Expander>
+                                                        <Control Grid.Column="2" Template="{StaticResource ButtonPrevious}"/>
+                                                        <Control Grid.Column="3" Template="{StaticResource PageNumber}"/>
+                                                        <Control Grid.Column="4" Template="{StaticResource ButtonNext}"/>
+                                                    </Grid>
+                                                    <Control Template="{StaticResource WordMeaningControl}"/>
+                                                    <Control Template="{StaticResource SentenceExamplesControl}"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </StackPanel>
+                                    </Expander>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

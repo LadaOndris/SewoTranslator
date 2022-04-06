@@ -122,7 +122,7 @@ namespace SewoTranslator.Model
         public SavedWord GetSavedWordVM(Word word)
         {
             WordInfo[] wordInfos = RequestWordInfos(word.Original);
-            return new SavedWord(word.Original, wordInfos, word.Translations);
+            return new SavedWord(word.Original, wordInfos, word.Translations, DateTime.Now.Date);
         }
         
     }

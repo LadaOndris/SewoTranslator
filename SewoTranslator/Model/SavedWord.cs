@@ -11,13 +11,14 @@ namespace SewoTranslator.Model
     [JsonObject]
     public sealed class SavedWord
     {
-        public SavedWord(string word, WordInfo[] wordInfos, List<string> translations)
+        public SavedWord(string word, WordInfo[] wordInfos, List<string> translations, DateTime dateSaved)
         {
             Word = word;
             WordInfos = wordInfos;
             Translations = translations;
+            DateSaved = dateSaved;
         }
-        
+
         [JsonProperty]
         public String Word { get; }
 
@@ -26,6 +27,9 @@ namespace SewoTranslator.Model
 
         [JsonProperty]
         public List<string> Translations { get; }
+
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public DateTime DateSaved { get; }
 
         public string TranslationsToString()
         {

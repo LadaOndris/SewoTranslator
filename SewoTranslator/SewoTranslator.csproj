@@ -148,6 +148,7 @@
     <Compile Include="Model\SavedWord.cs" />
     <Compile Include="ViewModel\SettingsVM.cs" />
     <Compile Include="ViewModel\UnfoundWordsVM.cs" />
+    <Compile Include="ViewModel\WordGroup.cs" />
     <Compile Include="View\EnglishDictionaryWindow.xaml.cs">
       <DependentUpon>EnglishDictionaryWindow.xaml</DependentUpon>
     </Compile>
